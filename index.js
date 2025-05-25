@@ -7,13 +7,16 @@ const resolvers = require("./src/resolvers");
 
 const startServer = async () => {
   const app = express();
+
   const server = new ApolloServer({
     typeDefs,
     resolvers,
+    introspection: true, // Permite introspección en producción
+    playground: true     // Activa el Apollo Sandbox en producción
   });
 
   await server.start();
-  server.applyMiddleware({ app, path: "/graphql"  });
+  server.applyMiddleware({ app, path: "/graphql" });
 
   const uri = process.env.MONGO_URI;
   mongoose.connect(uri)
@@ -27,3 +30,4 @@ const startServer = async () => {
 };
 
 startServer();
+
