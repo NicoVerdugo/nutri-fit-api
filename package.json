@@ -16,6 +16,7 @@
     "dotenv": "^16.5.0",
     "express": "^4.21.2",
     "graphql": "^16.11.0",
+    "graphql-playground-middleware-express": "^1.7.23",
     "mongodb": "^6.16.0",
     "mongoose": "^8.15.0"
   },
