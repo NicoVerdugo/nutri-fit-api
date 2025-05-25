@@ -13,7 +13,7 @@ const startServer = async () => {
   });
 
   await server.start();
-  server.applyMiddleware({ app });
+  server.applyMiddleware({ app, path: "/graphql"  });
 
   const uri = process.env.MONGO_URI;
   mongoose.connect(uri)
